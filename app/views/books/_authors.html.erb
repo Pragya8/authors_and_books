@@ -1,0 +1,14 @@
+<div class="author-type">
+  <p>
+    <%= title %>
+  </p>
+</div>
+<% authors.to_a.each do |author| %>
+  <% selected = f.object&.author_ids&.include?(author.id) %>
+  <div class="checkbox-authors">
+    <label>
+      <%= "#{author.first_name}" %>
+      <%= check_box_tag 'book[author_ids][]', author.id, selected %>
+    </label>
+  </div>
+<%end%>

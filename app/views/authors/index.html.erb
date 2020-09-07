@@ -1,0 +1,23 @@
+<% if @authors.present? %>
+  <table style="width:50%">
+    <tr>
+      <th>Author Name</th>
+      <th>DOB</th>
+    </tr>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.first_name + author.last_name %></td>
+        <td><%= author.date_of_birth %></td>
+        <td><%= link_to 'Show', author_path(author.id) %></td>
+        <td><%= link_to 'Edit', edit_author_path(author.id) %></td>
+        <td><%= link_to 'Delete', author_path(author.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h3>There is no author added yet. Please first add author.</h3>
+  <h3><%= link_to 'Add Author', new_author_path %></h3>
+<% end %>
+<br>
+<%= link_to 'Back', :back %>
+<%= link_to "Home page", welcome_index_path %>

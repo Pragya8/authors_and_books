@@ -1,0 +1,14 @@
+<%= form_with model: @book, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <%= render partial: 'authors', locals: { title: 'Author Name', authors: @authors, f: form } %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', :back %>
+<%= link_to "Home page", welcome_index_path %>

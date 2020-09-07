@@ -1,0 +1,14 @@
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+<p>
+  <strong>Authors:</strong>
+  <% @book.authors.each do |author| %>
+    <ul>
+      <li><%= link_to author.first_name, author_path(author), title: 'Author Detail' %></li>
+    </ul>
+  <% end %>
+</p>
+<%= link_to 'Back', :back %>
+<%= link_to "Home page", welcome_index_path %>

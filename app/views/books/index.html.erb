@@ -1,0 +1,21 @@
+<% if @books.present? %>
+  <table style="width:50%">
+    <tr>
+      <th>Title</th>
+    </tr>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= link_to 'Show', book_path(book.id) %></td>
+        <td><%= link_to 'Edit', edit_book_path(book.id) %></td>
+        <td><%= link_to 'Delete', book_path(book.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br>
+<% else %>
+  <h3>There is no book added yet. Please first add books..</h3>
+  <h3><%= link_to 'Add Book', new_book_path %></h3>
+<% end %>
+<%= link_to 'Back', :back %>
+<%= link_to "Home page", welcome_index_path %>
