@@ -6,7 +6,7 @@
     </tr>
     <% @authors.each do |author| %>
       <tr>
-        <td><%= author.first_name + author.last_name %></td>
+        <td><%= author_name(author) %></td>
         <td><%= author.date_of_birth %></td>
         <td><%= link_to 'Show', author_path(author.id) %></td>
         <td><%= link_to 'Edit', edit_author_path(author.id) %></td>

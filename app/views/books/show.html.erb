@@ -6,7 +6,7 @@
   <strong>Authors:</strong>
   <% @book.authors.each do |author| %>
     <ul>
-      <li><%= link_to author.first_name, author_path(author), title: 'Author Detail' %></li>
+      <li><%= link_to author_name(author), author_path(author), title: 'Author Detail' %></li>
     </ul>
   <% end %>
 </p>

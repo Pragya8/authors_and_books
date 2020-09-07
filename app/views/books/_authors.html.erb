@@ -3,12 +3,12 @@
     <%= title %>
   </p>
 </div>
-<% authors.to_a.each do |author| %>
-  <% selected = f.object&.author_ids&.include?(author.id) %>
-  <div class="checkbox-authors">
+<div class="checkbox-authors">
+  <% authors.to_a.each do |author| %>
+    <% selected = f.object&.author_ids&.include?(author.id) %>
     <label>
-      <%= "#{author.first_name}" %>
+      <%= author_name(author) %>
       <%= check_box_tag 'book[author_ids][]', author.id, selected %>
     </label>
-  </div>
-<%end%>
+  <%end%>
+</div>
